@@ -1,0 +1,63 @@
+#ploneleftcolumn:load { 
+    action-client: solgema-initLeftPortletDragAndDrop;
+    solgema-initLeftPortletDragAndDrop-table: '#ploneleftcolumn';
+    solgema-initLeftPortletDragAndDrop-viewname: kssAttr('viewname', true);
+}
+
+#plonerightcolumn:load { 
+    action-client: solgema-initRightPortletDragAndDrop;
+    solgema-initRightPortletDragAndDrop-table: '#plonerightcolumn';
+    solgema-initRightPortletDragAndDrop-viewname: kssAttr('viewname', true);
+}
+
+.portletAssignments .managedPortletActions .up:click {
+    evt-click-preventdefault: true;
+    action-server: spmInlineMovePortletUp;
+    spmInlineMovePortletUp-portlethash: kssAttr('portlethash', true);
+    spmInlineMovePortletUp-viewname: kssAttr('viewname', true);
+} 
+
+.portletAssignments .managedPortletActions .down:click {
+    evt-click-preventdefault: true;
+    action-server: spmInlineMovePortletDown;
+    spmInlineMovePortletDown-portlethash: kssAttr('portlethash', true);
+    spmInlineMovePortletDown-viewname: kssAttr('viewname', true);
+} 
+
+.portletAssignments .managedPortletActions .delete:click {
+    evt-click-preventdefault: true;
+    action-server: spmInlineDeletePortlet;
+    spmInlineDeletePortlet-portlethash: kssAttr('portlethash', true);
+    spmInlineDeletePortlet-viewname: kssAttr('viewname', true);
+}
+
+.portletAssignments .managedPortletActions .stop:click {
+    evt-click-preventdefault: true;
+    action-server: spmInlineStopPortlet;
+    spmInlineStopPortlet-portlethash: kssAttr('portlethash', true);
+    spmInlineStopPortlet-viewname: kssAttr('viewname', true);
+    spmInlineStopPortlet-hereurl: kssAttr('hereurl', true);
+}
+
+.portletAssignments .managedPortletActions .allow:click {
+    evt-click-preventdefault: true;
+    action-server: spmInlineAllowPortlet;
+    spmInlineAllowPortlet-portlethash: kssAttr('portlethash', true);
+    spmInlineAllowPortlet-viewname: kssAttr('viewname', true);
+    spmInlineAllowPortlet-hereurl: kssAttr('hereurl', true);
+}
+
+.portletAssignments .managedPortletActions .right:click {
+    evt-click-preventdefault: true;
+    action-server: spmInlineRightPortlet;
+    spmInlineRightPortlet-portlethash: kssAttr('portlethash', true);
+    spmInlineRightPortlet-viewname: kssAttr('viewname', true);
+} 
+
+.portletAssignments .managedPortletActions .left:click {
+    evt-click-preventdefault: true;
+    action-server: spmInlineLeftPortlet;
+    spmInlineLeftPortlet-portlethash: kssAttr('portlethash', true);
+    spmInlineLeftPortlet-viewname: kssAttr('viewname', true);
+}
+

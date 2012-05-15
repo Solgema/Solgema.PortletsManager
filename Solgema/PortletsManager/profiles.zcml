@@ -1,0 +1,94 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="solgemaportletsmanager">
+    
+  <genericsetup:registerProfile
+    name="default"
+    title="Solgema PortletsManager"
+    directory="profiles/default"
+    description='Install Solgema PortletsManager Package by Martronic SA.'
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Uninstall Solgema PortletsManager"
+      directory="profiles/uninstall"
+      description="Uninstall Solgema PortletsManager Package."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:upgradeStep
+      title="Upgrade Solgema.PortletsManager"
+      description="Update. Look HISTORY.txt"
+      source="0.5.1b1"
+      destination="0.5.1b2"
+      handler="Solgema.PortletsManager.migrations.doNothing"
+      profile="Solgema.PortletsManager:default" />
+
+  <genericsetup:upgradeStep
+      title="Upgrade Solgema.PortletsManager"
+      description="Update. Look HISTORY.txt"
+      source="0.5.1b2"
+      destination="0.5.1"
+      handler="Solgema.PortletsManager.migrations.doNothing"
+      profile="Solgema.PortletsManager:default" />
+
+  <genericsetup:upgradeStep
+      title="Upgrade Solgema.PortletsManager"
+      description="Update. Look HISTORY.txt"
+      source="0.5.1"
+      destination="0.5.2"
+      handler="Solgema.PortletsManager.migrations.doNothing"
+      profile="Solgema.PortletsManager:default" />
+
+  <genericsetup:upgradeStep
+      title="Upgrade Solgema.PortletsManager"
+      description="Update. Look HISTORY.txt"
+      source="0.5.2"
+      destination="0.5.3"
+      handler="Solgema.PortletsManager.migrations.doNothing"
+      profile="Solgema.PortletsManager:default" />
+
+  <genericsetup:upgradeStep
+      title="Upgrade Solgema.PortletsManager"
+      description="Update. Look HISTORY.txt"
+      source="0.5.3"
+      destination="0.5.4"
+      handler="Solgema.PortletsManager.migrations.doNothing"
+      profile="Solgema.PortletsManager:default" />
+
+  <genericsetup:upgradeStep
+      title="Upgrade Solgema.PortletsManager"
+      description="Update. Look HISTORY.txt"
+      source="0.5.4"
+      destination="0.5.5"
+      handler="Solgema.PortletsManager.migrations.doNothing"
+      profile="Solgema.PortletsManager:default" />
+
+  <genericsetup:registerProfile
+      name="upgrade06"
+      title="Upgrade 0.6 for Solgema.PortletsManager (Plone 4)"
+      directory="profiles/upgrade06"
+      description="Upgrade 0.6 for Solgema.PortletsManager (Plone 4)"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:upgradeStep
+      title="Upgrade Solgema.PortletsManager to 0.6 (Plone 4)"
+      description="Update. Look HISTORY.txt"
+      source="0.5.5"
+      destination="0.6"
+      handler="Solgema.PortletsManager.migrations.upgrade06"
+      profile="Solgema.PortletsManager:default" />
+
+  <genericsetup:upgradeStep
+      title="Upgrade Solgema.PortletsManager"
+      description="Update. Look PKG_INFO.txt"
+      source="0.6"
+      destination="0.7"
+      handler="Solgema.PortletsManager.migrations.doNothing"
+      profile="Solgema.PortletsManager:default" />
+
+</configure>

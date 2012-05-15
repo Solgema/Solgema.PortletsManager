@@ -1,0 +1,67 @@
+# Translation to Norwegian
+# Espen Moe-Nilssen <espen@medialog.no>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: Solgema\n"
+"POT-Creation-Date: 2008-11-29 11:06+0000\n"
+"PO-Revision-Date: 2009-09-16 10:01+0100\n"
+"Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
+"Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: no\n"
+"Language-Name: Norsk\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: solgemaportletsmanager\n"
+"X-Is-Fallback-For: nb nb-no no-bok\n"
+
+#: solgema-manage-contextual.pt
+msgid "portlet_in_context_displayed"
+msgstr "Infobokser tilegnet og vist i denne folderen"
+
+#: solgema-manage-contextual.pt
+msgid "portlet_in_context_not_displayed"
+msgstr "Infobokser tilegnet men IKKE vist i denne folderen"
+
+#: solgema-manage-contextual.pt
+msgid "portlet_displayed"
+msgstr "Infobokser tilordnet underliggende mapper som blir vist"
+
+#: solgema-manage-contextual.pt
+msgid "portlet_not_displayed"
+msgstr "Infobokser tilordnet underliggende mapper som IKKE blir vist"
+
+#: solgema-manage-contextual.pt
+msgid "move_up"
+msgstr "flytt infoboks opp"
+
+#: solgema-manage-contextual.pt
+msgid "move_down"
+msgstr "flytt infoboks ned"
+
+#: solgema-manage-contextual.pt
+msgid "move_up_down"
+msgstr "flytt infoboks opp eller ned"
+
+#: solgema-manage-contextual.pt
+msgid "stop_portlet"
+msgstr "Ikke vis infoboks i denne eller underliggende foldere"
+
+#: solgema-manage-contextual.pt
+msgid "allow_portlet"
+msgstr "Vis infoboks i dene og underliggende foldere"
+
+#: solgema-manage-contextual.pt
+msgid "move_left"
+msgstr "flytt infoboks til venstre"
+
+#: solgema-manage-contextual.pt
+msgid "move_right"
+msgstr "flytt infoboks til høyre"
+
+#: solgema-manage-contextual.pt
+msgid "delete"
+msgstr "slett infoboks"
+

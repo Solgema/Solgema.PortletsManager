@@ -1,0 +1,30 @@
+Metadata-Version: 1.0
+Name: Solgema.PortletsManager
+Version: 0.7
+Summary: Solgema Portlets Manager
+Home-page: http://www.martronic.ch/plone_products/Solgema.PortletsManager
+Author: Martronic SA
+Author-email: martronic@martronic.ch
+License: GPL
+Description: Martronic.Solgema Package Readme
+        =========================
+        
+        Overview
+        --------
+        
+        Solgema
+        
+        Changelog
+        =========
+        
+        0.7 (2012-05-15)
+        ------------------
+        
+        - Add package on GIT
+          [fmoret]
+        
+Keywords: Solgema
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

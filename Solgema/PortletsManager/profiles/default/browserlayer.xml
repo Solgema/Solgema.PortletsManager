@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>
+    <layer name="Solgema.PortletsManager" 
+           interface="Solgema.PortletsManager.interfaces.ISolgemaPortletsManagerLayer" />
+</layers>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<componentregistry>
+    <adapters>
+        <adapter factory="Solgema.PortletsManager.portlets.retriever.SolgemaPortletRetriever"
+                 for_="zope.interface.Interface plone.portlets.interfaces.IPortletManager"
+                 provides="plone.portlets.interfaces.IPortletRetriever" />
+
+        <adapter factory="Solgema.PortletsManager.exportimport.SolgemaPortletAssignmentImportExportHandler"
+                 for_="zope.interface.Interface"
+                 provides="plone.app.portlets.exportimport.interfaces.IPortletAssignmentExportImportHandler" />
+
+    </adapters>
+</componentregistry>

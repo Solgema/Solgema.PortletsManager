@@ -1,0 +1,121 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+<head>
+    <div metal:fill-slot="javascript_head_slot" tal:omit-tag="">
+        <link type="text/css" rel="kinetic-stylesheet"
+            tal:attributes="href string:${context/absolute_url}/++resource++solgema-portlets-manager.kss"/>
+        <script type="text/javascript"
+            tal:attributes="src string:${context/absolute_url}/spmdragdropreorder.js"></script>
+    </div>
+
+    <metal:css fill-slot="css_slot">
+      <style type="text/css" media="all"
+             tal:content="string: @import url(${context/absolute_url}/solgemaportletsmanager.css);"></style>
+    </metal:css>
+
+</head>
+
+<body>
+<div metal:fill-slot="main">
+
+  <h1 class="documentFirstHeading"
+      i18n:translate="title_manage_contextual_portlets">
+      <img i18n:name="context_icon" tal:replace="structure python:plone_view.getIcon(context).html_tag()" />
+      Manage portlets for
+      "<span i18n:name="context_title" tal:content="context/Title" />"
+  </h1>
+
+  <a href=""
+       class="link-parent"
+       tal:attributes="href string:${context/absolute_url}"
+       i18n:translate="return_to_view">
+    Return
+  </a>
+
+<dl class="portalMessage info"
+    tal:condition="here/@@plone/isDefaultPageInFolder">
+    <dt i18n:translate="">
+        Info
+    </dt>
+    <dd i18n:translate="label_edit_default_view_container">
+        You are editing the default view of a container. If you wanted to edit the container itself,
+       <a href=""
+          i18n:name="go_here"
+          i18n:translate="label_edit_default_view_container_go_here"
+          tal:attributes="href string:${context/aq_inner/aq_parent/absolute_url}/@@manage-portlets">go here</a>.
+    </dd>
+</dl>
+
+  <p i18n:translate="description_manage_contextual_portlets">
+    The portlet columns will now display only those portlets
+    explicitly assigned in this context. Use the buttons on each portlet 
+    to move them up or down, delete or edit them. To add a new portlet,
+    use the drop-down list at the top of the column.
+  </p>
+  <div class="portletAssignments portletLegend" i18n:domain="Solgema.PortletsManager">
+        <div class="portletLegendLine herited portlet_here portlet_visible">
+          <div class="portletHeader"></div>
+        </div>
+        <span i18n:translate="portlet_in_context_displayed">Portlet assigned in this folder and displayed</span>
+        <div class="portletLegendLine herited portlet_here portlet_hidden">
+          <div class="portletHeader"></div>
+        </div>
+        <span i18n:translate="portlet_in_context_not_displayed">Portlet assigned in this folder but not displayed</span>
+        <div class="portletLegendLine herited portlet_visible">
+          <div class="portletHeader"></div>
+          <span i18n:translate="portlet_displayed">Portlet inherited and displayed</span>
+        </div>
+        <div class="portletLegendLine herited portlet_hidden">
+          <div class="portletHeader"></div>
+          <span i18n:translate="portlet_not_displayed">Portlet inherited but not displayed</span>
+        </div>
+  <ul style="clear:both;">
+    <li id="move_up" style="display:list-item;"><span i18n:translate="move_up">move portlet up</span>: &uarr;</li>
+    <li id="move_down" style="display:list-item;"><span i18n:translate="move_down">move portlet down</span>: &darr;</li>
+    <li id="move_up_down" style="display:none;"><span i18n:translate="move_up_down">move portlet up or down</span>: ::</li>
+    <li><span i18n:translate="stop_portlet">do not display this portlet this folder and under</span>: &plusmn;</li>
+    <li><span i18n:translate="allow_portlet">display this portlet this folder and under</span>: v</li>
+    <li><span i18n:translate="move_left">move portlet left</span>: &larr;</li>
+    <li><span i18n:translate="move_right">move portlet right</span>: &rarr;</li>
+    <li><span i18n:translate="delete">delete portlet</span>: &times;</li>
+  </ul>
+  <script type="text/javascript">
+    jq('#move_up').css("display", "none" );
+    jq('#move_down').css("display", "none" );
+    jq('#move_up_down').css("display", "list-item" );
+  </script>
+  </div>
+  <p i18n:translate="description_portlets_block_unblock">
+      If you wish to block or unblock certain categories of portlets, you can 
+      do so using the drop-down boxes.
+  </p>
+
+  <div tal:condition="view/has_legacy_portlets">
+
+    <h2 i18n:translate="title_legacy_portlets">Legacy portlets</h2>
+
+    <p i18n:translate="action_convert_legacy_portlets">
+      There are legacy portlets defined here. Click the button to
+      convert them to new-style portlets.
+    </p>
+
+    <form method="POST"
+          tal:attributes="action string:${context/absolute_url}/@@convert-legacy-portlets">
+
+        <input type="submit"
+               class="context"
+               value="Convert portlets"
+               i18n:attributes="value label_convert_portlets"
+               name="convert" />
+    
+    </form>
+
+  </div>
+
+</div>
+</body>
+</html>

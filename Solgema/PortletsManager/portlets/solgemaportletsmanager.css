@@ -1,0 +1,43 @@
+.portletLegend {
+    margin-left:2em;
+}
+
+.portletLegend .portletLegendLine {
+    margin:5px 0px 0px 0px;
+    padding:0px;
+    clear:both;
+}
+
+.portletLegend .portletHeader {
+    height:10px;
+    width:10px;
+    float:left;
+    margin:2px 5px 0px 0px;
+    padding:0px;
+}
+
+.portletAssignments .portletHeader a {
+    background-color: &dtml-globalBorderColor;;
+    border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+    color:white;
+}
+
+.portletAssignments .portlet_visible .portletHeader {
+    background-color: &dtml-globalBackgroundColor;;
+    border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBackgroundColor;;
+}
+
+.portletAssignments .portlet_hidden .portletHeader {
+    background-color: transparent;
+    border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBackgroundColor;;
+}
+
+.portletAssignments .portlet_visible .portletHeader a,
+.portletAssignments .portlet_hidden .portletHeader a {
+    color: &dtml-globalLinkColor;;
+}
+
+.portletAssignments .portletHeader.managedPortletActions a:hover {
+    color: &dtml-globalLinkHoverColor;;
+}
+

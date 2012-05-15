@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Solgema\n"
+"POT-Creation-Date: 2008-11-29 11:06+0000\n"
+"PO-Revision-Date: 2007-12-14 16:01+0100\n"
+"Last-Translator: Martronic SA <martronic@martronic.ch>\n"
+"Language-Team: EDF\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: solgemaportletsmanager\n"
+"X-Is-Fallback-For: en-au en-bz en-ca en-ie en-jm en-nz en-ph en-za en-tt en-gb en-us en-zw\n"
+
+#: solgema-manage-contextual.pt
+msgid "portlet_in_context_displayed"
+msgstr "Portlet assigned in this folder and displayed"
+
+#: solgema-manage-contextual.pt
+msgid "portlet_in_context_not_displayed"
+msgstr "Portlet assigned in this folder but not displayed"
+
+#: solgema-manage-contextual.pt
+msgid "portlet_displayed"
+msgstr "Portlet inherited and displayed"
+
+#: solgema-manage-contextual.pt
+msgid "portlet_not_displayed"
+msgstr "Portlet inherited but not displayed"
+
+#: solgema-manage-contextual.pt
+msgid "move_up"
+msgstr "move portlet up"
+
+#: solgema-manage-contextual.pt
+msgid "move_down"
+msgstr "move portlet down"
+
+#: solgema-manage-contextual.pt
+msgid "move_up_down"
+msgstr "move portlet up or down"
+
+#: solgema-manage-contextual.pt
+msgid "stop_portlet"
+msgstr "do not display this portlet this folder and under"
+
+#: solgema-manage-contextual.pt
+msgid "allow_portlet"
+msgstr "display this portlet this folder and under"
+
+#: solgema-manage-contextual.pt
+msgid "move_left"
+msgstr "move portlet left"
+
+#: solgema-manage-contextual.pt
+msgid "move_right"
+msgstr "move portlet right"
+
+#: solgema-manage-contextual.pt
+msgid "delete"
+msgstr "delete portlet"

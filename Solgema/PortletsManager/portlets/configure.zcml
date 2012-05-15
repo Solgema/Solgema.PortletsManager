@@ -1,0 +1,165 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:kss="http://namespaces.zope.org/kss"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:five="http://namespaces.zope.org/five">
+
+  <include package="plone.app.portlets" />
+
+<!-- CHANGE THE COLUMN.PT TEMPLATE -->
+<!-- MOVED TO OVERRIDES.ZCML
+     this adds a specific class to each portlet of the renderer in order to give them sepcial
+     look depending on the type of portlet
+     Unfortunately that adapter can't be overriden without addind 
+     Solgema.PortletsManager-overrides in the buildout.cfg.
+  <adapter 
+     factory=".manager.SolgemaColumnPortletManagerRenderer"
+     provides="plone.portlets.interfaces.IPortletManagerRenderer"
+     />
+-->
+
+<!-- Store specific Solgema.PortletsManager attributes -->
+  <adapter
+     for="plone.portlets.interfaces.IPortletAssignment"
+     provides="Solgema.PortletsManager.interfaces.ISolgemaPortletAssignment"
+     factory=".adapters.SolgemaPortletAssignment"
+     />
+
+<!-- CHANGE THE DEFAULT RETRIEVER TO GET THE RIGHT PORTLET ORDER --> 
+  <adapter factory="Solgema.PortletsManager.portlets.manager.SolgemaPortletManagerRetriever" />
+
+  <adapter
+     factory="Solgema.PortletsManager.portlets.manager.ContextualEditPortletManagerRenderer"
+     provides="plone.portlets.interfaces.IPortletManagerRenderer"
+     />
+
+  <browser:page
+     for="*"
+     name="herited-portlets-macros"
+     class="plone.app.portlets.browser.manage.ManageContextualPortlets"
+     template="herited-manager-macros.pt"
+     permission="plone.app.portlets.ManageOwnPortlets"
+     layer="Solgema.PortletsManager.interfaces.ISolgemaPortletsManagerLayer"
+     />
+
+  <browser:pages
+     for="plone.portlets.interfaces.IPortletAssignmentMapping"
+     class="Solgema.PortletsManager.portlets.editmanager.ManagePortletAssignments"
+     permission="plone.app.portlets.ManageOwnPortlets"
+     >
+      
+      <browser:page
+        name="spm-delete-portlet"
+        attribute="spm_delete_portlet"
+        />
+      
+      <browser:page
+        name="spm-allow-portlet"
+        attribute="spm_allow_portlet"
+        />
+
+      <browser:page
+        name="spm-stop-portlet"
+        attribute="spm_stop_portlet"
+        />
+
+      <browser:page
+        name="spm-move-portlet-up"
+        attribute="spm_move_portlet_up"
+        />
+      
+      <browser:page
+        name="spm-move-portlet-down"
+        attribute="spm_move_portlet_down"
+        />
+
+      <browser:page
+        name="spm-left-portlet"
+        attribute="spm_left_portlet"
+        />
+
+      <browser:page
+        name="spm-right-portlet"
+        attribute="spm_right_portlet"
+        />
+        
+  </browser:pages>
+
+  <browser:pages
+     for="*"
+     class="Solgema.PortletsManager.portlets.kss.PortletManagerKSS"
+     permission="plone.app.portlets.ManageOwnPortlets"
+     layer="Solgema.PortletsManager.interfaces.ISolgemaPortletsManagerLayer"
+     >
+
+      <browser:page
+        name="spmInlineDeletePortlet"
+        attribute="spm_delete_portlet"
+        />
+
+      <browser:page
+        name="spmInlineAllowPortlet"
+        attribute="spm_allow_portlet"
+        />
+
+      <browser:page
+        name="spmInlineStopPortlet"
+        attribute="spm_stop_portlet"
+        />
+
+      <browser:page
+        name="spmInlineMovePortletUp"
+        attribute="spm_move_portlet_up"
+        />
+
+      <browser:page
+        name="spmInlineMovePortletDown"
+        attribute="spm_move_portlet_down"
+        />
+
+      <browser:page
+        name="spmInlineLeftPortlet"
+        attribute="spm_left_portlet"
+        />
+
+      <browser:page
+        name="spmInlineRightPortlet"
+        attribute="spm_right_portlet"
+        />
+
+      <browser:page
+        name="spmMovePortletDelta"
+        attribute="spm_move_portlet_delta"
+        />
+
+  </browser:pages>
+
+  <browser:page
+     for="plone.portlets.interfaces.ILocalPortletAssignable"
+     name="manage-portlets"
+     class="plone.app.portlets.browser.manage.ManageContextualPortlets"
+     template="solgema-manage-contextual.pt"
+     permission="plone.app.portlets.ManagePortlets"
+     layer="Solgema.PortletsManager.interfaces.ISolgemaPortletsManagerLayer"
+     />
+
+  <browser:resource
+     name="solgema-portlets-manager.kss"
+     file="solgemaportletsmanager.kss"
+     />
+
+  <kss:action
+     name="solgema-initLeftPortletDragAndDrop"
+     command_factory="global"
+     jsfile="spmplugin.js"
+     />
+
+  <kss:action
+     name="solgema-initRightPortletDragAndDrop"
+     command_factory="global"
+     jsfile="spmplugin.js"
+     />
+
+</configure>

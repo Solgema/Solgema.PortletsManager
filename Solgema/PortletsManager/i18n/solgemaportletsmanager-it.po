@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Solgema\n"
+"POT-Creation-Date: 2008-11-29 11:06+0000\n"
+"PO-Revision-Date: 2009-09-09 16:01+0100\n"
+"Last-Translator: Alessandro SauZheR Ceglie <sauzher@gmail.com>\n"
+"Language-Team:\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1\n"
+"Language-Code: it\n"
+"Language-Name: Italiano\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: solgemaportletsmanager\n"
+"X-Is-Fallback-For: it-ch it-it\n"
+
+#: solgema-manage-contextual.pt
+msgid "portlet_in_context_displayed"
+msgstr "Portlet assegnato e visibile in questa cartella "
+
+#: solgema-manage-contextual.pt
+msgid "portlet_in_context_not_displayed"
+msgstr "Portlet assegnato in questa cartella ma non visibile"
+
+#: solgema-manage-contextual.pt
+msgid "portlet_displayed"
+msgstr "Portlet ereditato e visibile"
+
+#: solgema-manage-contextual.pt
+msgid "portlet_not_displayed"
+msgstr "Portlet ereditato ma non visibile"
+
+#: solgema-manage-contextual.pt
+msgid "move_up"
+msgstr "sposta il portlet su"
+
+#: solgema-manage-contextual.pt
+msgid "move_down"
+msgstr "sposta il portlet giu'"
+
+#: solgema-manage-contextual.pt
+msgid "move_up_down"
+msgstr "sposta il portlet su/giu'"
+
+#: solgema-manage-contextual.pt
+msgid "stop_portlet"
+msgstr "portlet non visibile in questa cartella e sottocartelle"
+
+#: solgema-manage-contextual.pt
+msgid "allow_portlet"
+msgstr "portlet visibile in questa cartella e sottocartelle"
+
+#: solgema-manage-contextual.pt
+msgid "move_left"
+msgstr "sposta il portlet a sinistra"
+
+#: solgema-manage-contextual.pt
+msgid "move_right"
+msgstr "sposta il portlet a destra"
+
+#: solgema-manage-contextual.pt
+msgid "delete"
+msgstr "elimina il portlet"

@@ -1,0 +1,8 @@
+Changelog
+=========
+
+0.7 (2012-05-15)
+------------------
+
+- Add package on GIT
+  [fmoret]

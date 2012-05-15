@@ -1,0 +1,48 @@
+<div metal:define-macro="herited-portlets-list"
+    tal:define="hereurl python:'/'.join(here.getPhysicalPath());
+                here_url context/@@plone_context_state/object_url;"
+    tal:attributes="class string:portletAssignments kssattr-viewname-${view/__parent__/__name__} kssattr-hereurl-${hereurl};
+                    id view/this_manager_name_css"
+    i18n:domain="plone">
+    <h4 i18n:domain="solgema" i18n:translate="heading_portlets_herited_here">
+        Portlets herited here
+    </h4>
+        <tal:block repeat="portlet view/all_herited_portlets">
+            <div tal:attributes="class string:herited portlet_${portlet/category} ${portlet/visibility} managedPortlet draggable portlet kssattr-portlethash-${portlet/hash} kssattr-managername-${portlet/manager_name};
+                                 id string:portlet${portlet/hash}">
+                <div class="portletHeader actionicon-controlpanel-memberprefs">
+                    <span class="managedPortletActions">
+                    <span class="draggable">
+                        <a href="#" class="up"
+                           tal:condition="not:repeat/portlet/start"
+                           tal:attributes="href string:${portlet/up_url}&referer=${view/url_quote_referer}">&uarr;</a>
+                        <a href="#" class="down"
+                           tal:condition="not:repeat/portlet/end"
+                           tal:attributes="href string:${portlet/down_url}&referer=${view/url_quote_referer}">&darr;</a>
+                    </span>
+                    <a href="#" class="stop"
+                       tal:attributes="href string:${portlet/stop_url}&referer=${view/url_quote_referer}&here_url=${hereurl}"
+                       tal:condition="not:portlet/stopped">&plusmn;</a>
+                    <a href="#" class="allow"
+                       tal:attributes="href string:${portlet/allow_url}&referer=${view/url_quote_referer}&here_url=${hereurl}"
+                       tal:condition="portlet/stopped">v</a>
+                    <a href="#" class="left"
+                       tal:attributes="href string:${portlet/left_url}&referer=${view/url_quote_referer}&here_url=${hereurl}"
+                       tal:condition="python:portlet['manager_name']=='plone.rightcolumn'">&larr;</a>
+                    <a href="#" class="right"
+                       tal:attributes="href string:${portlet/right_url}&referer=${view/url_quote_referer}&here_url=${hereurl}"
+                       tal:condition="python:portlet['manager_name']=='plone.leftcolumn'">&rarr;</a>
+                    <a href="#" class="delete" tal:condition="portlet/canDelete"
+                       tal:attributes="href string:${portlet/delete_url}&referer=${view/url_quote_referer}">&times;</a>
+                    </span>
+                    <a tal:omit-tag="not:portlet/editview"
+                       tal:attributes="href string:${portlet/editview}?referer=${view/url_quote_referer}"
+                        >
+                      <img tal:define="icon python:view.getIconFor(portlet['category'])"
+                           tal:attributes="src icon" alt="" tal:condition="icon"/>
+                      <span tal:replace="portlet/title"/>
+                    </a>
+                </div>
+            </div>
+        </tal:block>
+</div>
