@@ -2,23 +2,10 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
-    xmlns:kss="http://namespaces.zope.org/kss"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:five="http://namespaces.zope.org/five">
 
   <include package="plone.app.portlets" />
-
-<!-- CHANGE THE COLUMN.PT TEMPLATE -->
-<!-- MOVED TO OVERRIDES.ZCML
-     this adds a specific class to each portlet of the renderer in order to give them sepcial
-     look depending on the type of portlet
-     Unfortunately that adapter can't be overriden without addind 
-     Solgema.PortletsManager-overrides in the buildout.cfg.
-  <adapter 
-     factory=".manager.SolgemaColumnPortletManagerRenderer"
-     provides="plone.portlets.interfaces.IPortletManagerRenderer"
-     />
--->
 
 <!-- Store specific Solgema.PortletsManager attributes -->
   <adapter
@@ -74,6 +61,11 @@
         name="spm-move-portlet-down"
         attribute="spm_move_portlet_down"
         />
+      
+      <browser:page
+        name="spm_move_portlet_delta"
+        attribute="spm_move_portlet_delta"
+        />
 
       <browser:page
         name="spm-left-portlet"
@@ -89,7 +81,7 @@
 
   <browser:pages
      for="*"
-     class="Solgema.PortletsManager.portlets.kss.PortletManagerKSS"
+     class="Solgema.PortletsManager.portlets.view.PortletManagerView"
      permission="plone.app.portlets.ManageOwnPortlets"
      layer="Solgema.PortletsManager.interfaces.ISolgemaPortletsManagerLayer"
      >
@@ -145,21 +137,11 @@
      layer="Solgema.PortletsManager.interfaces.ISolgemaPortletsManagerLayer"
      />
 
-  <browser:resource
-     name="solgema-portlets-manager.kss"
-     file="solgemaportletsmanager.kss"
-     />
-
-  <kss:action
-     name="solgema-initLeftPortletDragAndDrop"
-     command_factory="global"
-     jsfile="spmplugin.js"
-     />
-
-  <kss:action
-     name="solgema-initRightPortletDragAndDrop"
-     command_factory="global"
-     jsfile="spmplugin.js"
-     />
+  <adapter factory=".manager.SolgemaColumnPortletManagerRenderer"
+     for="zope.interface.Interface
+          Solgema.PortletsManager.interfaces.ISolgemaPortletsManagerLayer
+          zope.publisher.interfaces.browser.IBrowserView
+          plone.portlets.interfaces.IPortletManager"
+     provides="plone.portlets.interfaces.IPortletManagerRenderer"/>
 
 </configure>

@@ -20,18 +20,19 @@
 }
 
 .portletAssignments .portlet_here .portletHeader {
-    background-color: &dtml-globalBorderColor;;
-    border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+    background-color: #5A9BC6;
+    border: 1px solid #5A9BC6;
 }
 
 .portletAssignments .portlet_here.portlet_visible .portletHeader {
-    background-color: &dtml-globalBorderColor;;
-    border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+    background-color: #5A9BC6;
+    border: 1px solid #5A9BC6;
 }
 
 .portletAssignments .portlet_here.portlet_hidden .portletHeader {
     background-color: white;
-    border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+    border: 1px solid #5A9BC6;
+    color: black;
 }
 
 .portletAssignments .portlet_here.portlet_visible .portletHeader a,
@@ -40,13 +41,21 @@
 }
 
 .portletAssignments .portlet_visible .portletHeader {
-    background-color: &dtml-globalBackgroundColor;;
-    border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBackgroundColor;;
+    background-color: #ADCDE2;
+    border: 1px solid #ADCDE2;
 }
 
 .portletAssignments .portlet_hidden .portletHeader {
     background-color: white;
-    border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBackgroundColor;;
+    border: 1px solid #ADCDE2;
+}
+
+.portletAssignments .portletHeader:hover {
+    border-color: #FFDB0F !important;
+}
+
+.portletAssignments .ui-sortable-helper .portletHeader:hover {
+    background-color: #FFDB0F !important;
 }
 
 .portletAssignments .portletHeader .managedPortletActions {
@@ -88,6 +97,20 @@
 }
 
 .notDraggable {
+}
+
+.portletAssignments .managedPortlet {
+    margin:0;
+    padding:1px 0;
+}
+
+.portletAssignments ul.sortable li {
+    list-style-type:none;
+}
+
+.portletAssignments ul.sortable li:hover {
+    cursor:pointer;
+    border:1px solid #
 }
 
 /* </dtml-with> */

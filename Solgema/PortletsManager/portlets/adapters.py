@@ -30,11 +30,3 @@ class SolgemaPortletAssignment(SolgemaPortletAssignmentStorage, AttributeAnnotat
         self.obj = obj
         self.context = obj
 
-    """
-    @property
-    def stopUrls(self):
-        return getattr(self, '__stopUrls__', 'rataplan')
-
-    def setStopUrls(self, value):
-        self.__stopUrls__ = value
-    """

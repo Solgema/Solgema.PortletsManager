@@ -18,6 +18,6 @@ class ISolgemaPortletAssignment(IPortletAssignment):
     """store stopped URLS"""
 
     stopUrls = schema.List(
-        title = u'stopUrls',
+        title = _(u'stopUrls', default="Urls to stop"),
         required = False,
         default=[],)

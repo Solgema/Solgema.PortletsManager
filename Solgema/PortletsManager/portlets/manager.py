@@ -1,9 +1,9 @@
 import sys
+import logging
 from Acquisition import Explicit, aq_parent, aq_inner
 from zope.component import adapts, getMultiAdapter, queryMultiAdapter, getUtility
 from zope.interface import implements, Interface
 from zope.annotation.interfaces import IAnnotations
-
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 from zope.publisher.interfaces.browser import IBrowserView
@@ -31,6 +31,8 @@ from plone.app.portlets.interfaces import IDashboard
 
 from Solgema.PortletsManager.interfaces import ISolgemaPortletsManagerLayer, ISolgemaPortletAssignment
 from Solgema.PortletsManager.interfaces import ISolgemaPortletManagerRetriever
+
+LOG = logging.getLogger('Solgema.PortletsManager')
 
 class SolgemaColumnPortletManagerRenderer(ColumnPortletManagerRenderer):
 #    implements(IPortletManagerRenderer)
@@ -103,23 +105,32 @@ class SolgemaPortletManagerRetriever(object):
                     categories.append((category, key, a,))
 
         managerUtility = getUtility(IPortletManager, manager, portal)
-        if not hasattr(managerUtility, 'listAllManagedPortlets'):
+        
+        if not getattr(managerUtility, 'listAllManagedPortlets', []):
             managerUtility.listAllManagedPortlets = []
 
-        hashlist = managerUtility.listAllManagedPortlets
+        hashlist = getattr(managerUtility, 'listAllManagedPortlets', [])
         assignments = []
         for category, key, assignment in categories:
             portletHash = hashPortletInfo(dict(manager=manager, category=category, key=key, name =assignment.__name__,))
             if portletHash not in hashlist:
                 hashlist.append(portletHash)
-            assignments.append({'category'    : category,
-                                'key'         : key,
-                                'name'        : assignment.__name__,
-                                'assignment'  : assignment,
-                                'hash'        : portletHash,
-                                'stopUrls'    : ISolgemaPortletAssignment(assignment).stopUrls,
-                                'manager'     : manager,
-                                })
+            try:
+                assignments.append({'category'    : category,
+                                    'key'         : key,
+                                    'name'        : assignment.__name__,
+                                    'assignment'  : assignment,
+                                    'hash'        : portletHash,
+                                    'stopUrls'    : ISolgemaPortletAssignment(assignment).stopUrls,
+                                    'manager'     : manager,
+                                    })
+            except TypeError:
+                LOG.info(u'Error while retrieving portlet assignment settings.\n\
+                           Context: "%s", Category: "%s", Key: "%s", Assignment\n\
+                           Class: "%s", Assignment ID: "%s"' % (
+                              '/'.join(self.context.getPhysicalPath()),
+                              category, key, str(assignment.__class__),
+                              assignment.__name__), context=self.context)
 
         managerUtility.listAllManagedPortlets = hashlist
 
@@ -150,10 +161,10 @@ class ContextualEditPortletManagerRenderer(baseContextualEditPortletManagerRende
 
     def __init__(self, context, request, view, manager):
         super(ContextualEditPortletManagerRenderer, self).__init__(context, request, view, manager)
+        self.portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
 
     def getIconFor(self, portletType):
-        portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
-        portal = portal_state.portal()
+        portal = self.portal_state.portal()
         portal_url = portal.absolute_url()
         plone_utils = getToolByName(self.context, 'plone_utils')
         if portletType not in [USER_CATEGORY,GROUP_CATEGORY,CONTENT_TYPE_CATEGORY]:
@@ -199,12 +210,13 @@ class ContextualEditPortletManagerRenderer(baseContextualEditPortletManagerRende
         return [a['hash'] for a in self.all_visible_portlets()]
 
     def context_baseUrl(self, rportlet_key, rportlet_category):
-        return '%s/++%sportlets++%s' % (rportlet_key, rportlet_category, self.manager.__name__)
+        portal = self.portal_state.portal()
+        portalID = portal.id
+        return '%s/++%sportlets++%s' % (portal.absolute_url()+rportlet_key.replace('/'+portalID,'', 1), rportlet_category, self.manager.__name__)
         
     def all_herited_portlets(self):
         """get herited portlets"""
-        portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
-        portal = portal_state.portal()
+        portal = self.portal_state.portal()
         manager = self.manager
         retriever = self.getRetriever()
         rportlets = retriever.getManagedPortlets()

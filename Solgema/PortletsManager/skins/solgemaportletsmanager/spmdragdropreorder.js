@@ -7,7 +7,7 @@ SPMLeftDnDReorder.rows = null;
 SPMLeftDnDReorder.viewname = null;
 
 SPMLeftDnDReorder.doDown = function(e) {
-    var dragging =  jq(this).parents('.draggable:first');
+    var dragging =  $(this).parents('.draggable:first');
     if (!dragging.length) return;
     dragging.mouseup(SPMLeftDnDReorder.doUp);
     SPMLeftDnDReorder.rows.mousemove(SPMLeftDnDReorder.doDrag);
@@ -27,8 +27,8 @@ SPMLeftDnDReorder.doDrag = function(e) {
     if (!dragging) return;
     var target = this;
     if (!target) return;
-    if (jq(target).attr('id') != dragging.attr('id')) {
-        SPMLeftDnDReorder.swapElements(jq(target), dragging);
+    if ($(target).attr('id') != dragging.attr('id')) {
+        SPMLeftDnDReorder.swapElements($(target), dragging);
     };
     return false;
 };
@@ -46,7 +46,7 @@ SPMLeftDnDReorder.swapElements = function(child1, child2) {
                                        child1[0]);
         child1.insertBefore(child2);
         child2.insertBefore(t);
-        jq(t).remove();
+        $(t).remove();
     };
 
 };
@@ -95,7 +95,7 @@ SPMRightDnDReorder.rows = null;
 SPMRightDnDReorder.viewname = null;
 
 SPMRightDnDReorder.doDown = function(e) {
-    var dragging =  jq(this).parents('.draggable:first');
+    var dragging =  $(this).parents('.draggable:first');
     if (!dragging.length) return;
     dragging.mouseup(SPMRightDnDReorder.doUp);
     SPMRightDnDReorder.rows.mousemove(SPMRightDnDReorder.doDrag);
@@ -115,8 +115,8 @@ SPMRightDnDReorder.doDrag = function(e) {
     if (!dragging) return;
     var target = this;
     if (!target) return;
-    if (jq(target).attr('id') != dragging.attr('id')) {
-        SPMRightDnDReorder.swapElements(jq(target), dragging);
+    if ($(target).attr('id') != dragging.attr('id')) {
+        SPMRightDnDReorder.swapElements($(target), dragging);
     };
     return false;
 };
@@ -134,7 +134,7 @@ SPMRightDnDReorder.swapElements = function(child1, child2) {
                                        child1[0]);
         child1.insertBefore(child2);
         child2.insertBefore(t);
-        jq(t).remove();
+        $(t).remove();
     };
 
 };

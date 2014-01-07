@@ -41,3 +41,7 @@
     color: &dtml-globalLinkHoverColor;;
 }
 
+.portletAssignments .managedPortlet {
+    margin:0;
+}
+

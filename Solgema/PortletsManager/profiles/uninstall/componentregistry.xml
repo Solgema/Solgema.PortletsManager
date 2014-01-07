@@ -9,5 +9,10 @@
                  for_="zope.interface.Interface"
                  provides="plone.app.portlets.exportimport.interfaces.IPortletAssignmentExportImportHandler" remove="True"/>
 
+
+        <adapter factory="Solgema.PortletsManager.portlets.manager.SolgemaColumnPortletManagerRenderer"
+                 for_="zope.interface.Interface"
+                 provides="plone.portlets.interfaces.IPortletManagerRenderer" remove="True"/>
+
     </adapters>
 </componentregistry>

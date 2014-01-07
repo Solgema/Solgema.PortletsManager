@@ -2,12 +2,15 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:five="http://namespaces.zope.org/five"
-    i18n_domain="solgemaportletsmanager">
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="Solgema.PortletsManager">
 
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
   <include file="profiles.zcml"/>
   <include package=".portlets" />
+  <include package=".upgrades" />
 
     <class class="plone.app.portlets.portlets.base.Assignment">
           <implements interface="zope.annotation.IAnnotations" />

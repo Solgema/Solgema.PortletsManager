@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.8 (2014-01-07)
+------------------
+
+- Updated package to version 0.8
+  Remove the use of kss
+  [fmoret]
+
 0.7 (2012-05-15)
 ------------------
 

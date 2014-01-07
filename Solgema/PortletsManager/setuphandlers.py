@@ -25,7 +25,6 @@ def setupSolgemaPortletsManager(context):
     if context.readDataFile('spm_various.txt') is None:
         return
     site = context.getSite()
-    site = context.getSite()
     jstool = getToolByName(site, 'portal_javascripts')
     jstool.cookResources()
     csstool = getToolByName(site, 'portal_css')

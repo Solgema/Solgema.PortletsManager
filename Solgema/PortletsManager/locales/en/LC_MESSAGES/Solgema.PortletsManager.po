@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Solgema\n"
-"POT-Creation-Date: 2012-05-09 06:16+0000\n"
+"POT-Creation-Date: 2013-06-20 06:48+0000\n"
 "PO-Revision-Date: 2007-12-14 16:01+0100\n"
 "Last-Translator: Martronic SA <martronic@martronic.ch>\n"
 "Language-Team: EDF\n"
@@ -14,4 +14,90 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: Solgema.PortletsManager\n"
 "X-Is-Fallback-For: en-au en-bz en-ca en-ie en-jm en-nz en-ph en-za en-tt en-gb en-us en-zw\n"
+
+#: ../portlets/herited-manager-macros.pt:28
+msgid "Hide here"
+msgstr ""
+
+#: ../portlets/herited-manager-macros.pt:40
+msgid "Move left"
+msgstr ""
+
+#: ../portlets/herited-manager-macros.pt:46
+msgid "Move right"
+msgstr ""
+
+#: ../portlets/herited-manager-macros.pt:34
+msgid "Show here"
+msgstr ""
+
+#. Default: "display this portlet this folder and under"
+#: ../portlets/solgema-manage-contextual.pt:79
+msgid "allow_portlet"
+msgstr "display this portlet this folder and under"
+
+#. Default: "delete portlet"
+#: ../portlets/solgema-manage-contextual.pt:82
+msgid "delete"
+msgstr "delete portlet"
+
+#. Default: "Portlets herited here"
+#: ../portlets/herited-manager-macros.pt:7
+msgid "heading_portlets_herited_here"
+msgstr ""
+
+#. Default: "move portlet down"
+#: ../portlets/solgema-manage-contextual.pt:76
+msgid "move_down"
+msgstr "move portlet down"
+
+#. Default: "move portlet left"
+#: ../portlets/solgema-manage-contextual.pt:80
+msgid "move_left"
+msgstr "move portlet left"
+
+#. Default: "move portlet right"
+#: ../portlets/solgema-manage-contextual.pt:81
+msgid "move_right"
+msgstr "move portlet right"
+
+#. Default: "move portlet up"
+#: ../portlets/solgema-manage-contextual.pt:75
+msgid "move_up"
+msgstr "move portlet up"
+
+#. Default: "move portlet up or down"
+#: ../portlets/solgema-manage-contextual.pt:77
+msgid "move_up_down"
+msgstr "move portlet up or down"
+
+#. Default: "Portlet inherited and displayed"
+#: ../portlets/solgema-manage-contextual.pt:68
+msgid "portlet_displayed"
+msgstr "Portlet inherited and displayed"
+
+#. Default: "Portlet assigned in this folder and displayed"
+#: ../portlets/solgema-manage-contextual.pt:61
+msgid "portlet_in_context_displayed"
+msgstr "Portlet assigned in this folder and displayed"
+
+#. Default: "Portlet assigned in this folder but not displayed"
+#: ../portlets/solgema-manage-contextual.pt:65
+msgid "portlet_in_context_not_displayed"
+msgstr "Portlet assigned in this folder but not displayed"
+
+#. Default: "Portlet inherited but not displayed"
+#: ../portlets/solgema-manage-contextual.pt:72
+msgid "portlet_not_displayed"
+msgstr "Portlet inherited but not displayed"
+
+#. Default: "Urls to stop"
+#: ../interfaces.py:21
+msgid "stopUrls"
+msgstr ""
+
+#. Default: "do not display this portlet this folder and under"
+#: ../portlets/solgema-manage-contextual.pt:78
+msgid "stop_portlet"
+msgstr "do not display this portlet this folder and under"
 
